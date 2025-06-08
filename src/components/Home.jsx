@@ -90,7 +90,7 @@ const Home = () => {
         ))}
       </div>
       <div className="flex items-center justify-center">
-        <button className="text-2xl mx-auto my-4 btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-primary font-semibold ">
+        <button className="text-2xl mx-auto my-4 btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#177C82] text-white font-semibold ">
           See All
         </button>
       </div>

@@ -87,7 +87,7 @@ const AcademyDetails = () => {
 
           {/* Book Now Button */}
           {academy.isBookable && (
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-700">
+            <button className="bg-[#177C82] text-white px-4 py-2 rounded-md text-sm font-semibold ">
               Book Now
             </button>
           )}

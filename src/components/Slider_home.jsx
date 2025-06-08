@@ -17,7 +17,9 @@ const Slider_home = ({ work }) => {
             Unleash Your Athletic Potential with Expert Coaching,
             State-of-the-Art Facilities and Personalized Training Programs.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn shadow-sky-400 text-white bg-[#177C8270]">
+            Get Started
+          </button>
         </div>
       </div>
     </div>

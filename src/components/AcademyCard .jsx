@@ -24,7 +24,7 @@ const AcademyCard = ({ academy }) => {
         {/* Rating */}
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center space-x-2">
-            <span className="bg-primary text-white text-sm font-semibold px-2 py-1 rounded">
+            <span className="bg-[#aaf40c]  text-black text-sm font-semibold px-2 py-1 rounded">
               {academy.rating}
             </span>
             <span className="text-gray-600 text-sm">
@@ -52,7 +52,7 @@ const AcademyCard = ({ academy }) => {
         <div className="flex items-center  text-gray-700 text-sm mb-4">
           <CiCalendarDate />
           Next Availability:
-          <span className="text-green-600 ml-1">{formattedDate}</span>
+          <span className="font-semibold"> {formattedDate} </span>
         </div>
 
         {/* Instructor & Book Button */}
@@ -69,7 +69,7 @@ const AcademyCard = ({ academy }) => {
           </div>
 
           <Link to={`/event/details/${academy._id}`}>
-            <button className="text-sm btn  btn-primary font-semibold  ">
+            <button className="text-sm btn  bg-[#177C82] text-white font-semibold  ">
               View Details
             </button>
           </Link>
