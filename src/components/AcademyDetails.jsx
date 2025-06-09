@@ -1,8 +1,32 @@
-import React from "react";
-import { useLoaderData } from "react-router";
+import React, { useContext } from "react";
+import { useLoaderData, useParams } from "react-router";
+import { AuthContext } from "../context/AuthProvider";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const AcademyDetails = () => {
   const academy = useLoaderData();
+  const { logedInuser } = useContext(AuthContext);
+
+  const handleBookEvent = () => {
+    const bookEvent = {
+      ...academy,
+      userEmail: logedInuser.email,
+    };
+
+    axios
+      .post("http://localhost:5000/book_events", bookEvent)
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("EventBook Success");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+
+        toast.error("You have already book This event");
+      });
+  };
   const formattedDate = new Date(academy.nextAvailability).toLocaleDateString(
     "en-GB",
     { day: "2-digit", month: "long", year: "numeric" }
@@ -89,7 +113,10 @@ const AcademyDetails = () => {
 
           {/* Book Now Button */}
           {academy.isBookable && (
-            <button className="bg-[#177C82] text-white px-4 py-2 rounded-md text-sm font-semibold ">
+            <button
+              onClick={handleBookEvent}
+              className="bg-[#177C82] text-white px-4 py-2 rounded-md cursor-pointer text-sm font-semibold "
+            >
               Book Now
             </button>
           )}
