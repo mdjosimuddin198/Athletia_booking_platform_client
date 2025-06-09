@@ -67,8 +67,10 @@ const AcademyDetails = () => {
             </svg>
             <span>
               Next Availability:{" "}
-              <span className="text-green-600">{formattedDate}</span>
+              <span className="text-green-600"> {formattedDate} </span>
             </span>
+
+            <span> &nbsp;Type:- {academy.type}</span>
           </div>
         </div>
 
@@ -81,7 +83,7 @@ const AcademyDetails = () => {
               className="w-10 h-10 rounded-full"
             />
             <span className="font-medium text-gray-800 text-sm">
-              Instructor: {academy.instructor.name}
+              Instructor: {academy.instructorName}
             </span>
           </div>
 

@@ -48,6 +48,12 @@ const AcademyCard = ({ academy }) => {
           {academy.location}
         </div>
 
+        {/* type */}
+
+        <div className="flex items-center text-gray-700 text-sm mb-1">
+          {academy.type}
+        </div>
+
         {/* Next Availability */}
         <div className="flex items-center  text-gray-700 text-sm mb-4">
           <CiCalendarDate />
@@ -64,7 +70,7 @@ const AcademyCard = ({ academy }) => {
               className="w-8 h-8 rounded-full"
             />
             <span className="text-sm text-gray-800 font-medium">
-              {academy.instructor.name}
+              {academy.instructorName}
             </span>
           </div>
 

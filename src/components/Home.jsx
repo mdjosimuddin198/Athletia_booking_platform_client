@@ -86,7 +86,7 @@ const Home = () => {
       <h3 className="my-8">Accademy Section</h3>
       <div className="grid grid-cols-1 my-8 mx-4 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {allEvents.map((academy) => (
-          <AcademyCard academy={academy}></AcademyCard>
+          <AcademyCard key={academy._id} academy={academy}></AcademyCard>
         ))}
       </div>
       <div className="flex items-center justify-center">
