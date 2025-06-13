@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const AcademyDetails = () => {
   const academy = useLoaderData();
   const { logedInuser } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const handleBookEvent = () => {
     const bookEvent = {
       ...academy,
@@ -19,6 +19,7 @@ const AcademyDetails = () => {
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("EventBook Success");
+          navigate("/my_bookings");
         }
       })
       .catch((err) => {

@@ -11,6 +11,7 @@ import ErrorPage from "../pages/ErrorPage";
 import MyBooking from "../pages/MyBooking";
 import AllEvent from "../pages/AllEvent";
 import CreaatEvent from "../pages/CreaatEvent";
+import ManageEvents from "../pages/ManageEvents";
 
 const Routes = createBrowserRouter([
   {
@@ -75,6 +76,20 @@ const Routes = createBrowserRouter([
             <CreaatEvent></CreaatEvent>
           </PrivetRoute>
         ),
+      },
+      {
+        path: "/manage_events",
+        loader: async () => {
+          const res = await fetch("http://localhost:5000/all_events");
+          const data = await res.json();
+          return data;
+        },
+        element: (
+          <PrivetRoute>
+            <ManageEvents></ManageEvents>
+          </PrivetRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
       },
 
       {

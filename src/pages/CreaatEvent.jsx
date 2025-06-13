@@ -28,7 +28,7 @@ const CreaatEvent = () => {
         // console.log(res.data);
         if (res.data.insertedId) {
           toast.success("job Added Successfully");
-          navigate("/all_event");
+          navigate("/manage_events");
         }
       })
       .catch((err) => {
@@ -87,8 +87,9 @@ const CreaatEvent = () => {
               name="hr_name"
               className="input w-full"
               // add user name after update username in firebase
-              defaultValue={logedInuser?.displayName}
+              value={logedInuser?.displayName}
               required
+              readOnly
             />
           </fieldset>
           <fieldset className="fieldset">
@@ -108,6 +109,7 @@ const CreaatEvent = () => {
               className="input w-full"
               defaultValue={logedInuser?.email}
               required
+              readOnly
             />
           </fieldset>
         </div>

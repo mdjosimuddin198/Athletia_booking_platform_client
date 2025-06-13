@@ -1,24 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router";
-// import { AuthContext } from "../context/AuthProvider";
-import { MdDeleteOutline } from "react-icons/md";
-import { CiEdit } from "react-icons/ci";
-import { FaRegHeart } from "react-icons/fa6";
-import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthProvider";
+import { MdDeleteOutline } from "react-icons/md";
+import Swal from "sweetalert2";
 
-const MyBooking = () => {
+const ManageEvents = () => {
   const { logedInuser } = useContext(AuthContext);
-  const allUserDatas = useLoaderData();
-  // console.log(allUserDatas);
-  const myPost = allUserDatas.filter(
-    (task) => task.userEmail === logedInuser?.email
+
+  const allEvent = useLoaderData();
+  const manageEventData = allEvent.filter(
+    (event) => event.hr_email === logedInuser.email
   );
+  const [manageEvents, setManageEvents] = useState(manageEventData);
+  console.log(manageEventData);
 
-  const [taskDel, setTaskDel] = useState(myPost);
-  console.log(taskDel);
-
-  const handleDeleteUser = (id) => {
+  const handleDeleteEvent = (id) => {
     // console.log(id);
 
     Swal.fire({
@@ -31,7 +27,7 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/book_events/${id}`, {
+        fetch(`http://localhost:5000/all_events/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -41,45 +37,47 @@ const MyBooking = () => {
 
         Swal.fire({
           title: "Deleted!",
-          text: "Your bookd event has been deleted.",
+          text: "Your Post has been deleted.",
           icon: "success",
         });
-        const remainingPost = taskDel.filter((task) => task._id !== id);
-        setTaskDel(remainingPost);
+        const remainingPostEvent = manageEvents.filter(
+          (task) => task._id !== id
+        );
+        setManageEvents(remainingPostEvent);
       }
     });
   };
-  // console.log(myPost);
+
   return (
     <>
-      {taskDel.length === 0 ? (
+      {manageEvents.length === 0 ? (
         <div className="flex flex-col items-center justify-center min-h-[300px] bg-gray-50 rounded-xl shadow-inner text-center p-6 animate-fade-in">
           <img
             src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png"
-            alt="No Posts"
+            alt="No eventPosts"
             className="w-24 h-24 mb-4 opacity-80"
           />
           <h2 className="text-xl font-semibold text-gray-700 mb-2">
-            You don’t have any booked Event yet
+            You haven’t Post any events yet
           </h2>
           <p className="text-gray-500 mb-4">
-            Start by booking your first events with the community.
+            Start by sharing your first eventPost with the community.
           </p>
           <Link
-            to={"/all_event"}
+            to={"/"}
             className="px-4 py-2 bg-accent text-white rounded-lg transition"
           >
-            Book Event
+            Create A eventPost
           </Link>
         </div>
       ) : (
         <div>
           <h3 className="text-3xl text-center ">
-            You have{" "}
+            Your{" "}
             <span className="text-[#aaf40c] font-semibold">
-              {taskDel.length}
+              {manageEvents.length}
             </span>{" "}
-            booked events
+            events are currently live
           </h3>
           <div className="overflow-x-auto ">
             <table className="table min-w-full ">
@@ -95,32 +93,32 @@ const MyBooking = () => {
               </thead>
               <tbody>
                 {/* row 1 */}
-                {taskDel.map((post, index) => (
-                  <tr key={post._id}>
+                {manageEvents.map((eventPost, index) => (
+                  <tr key={eventPost._id}>
                     <th>{index + 1}</th>
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="avatar">
                           <div className="mask mask-squircle h-12 w-12">
                             <img
-                              src={post.imageUrl}
+                              src={eventPost.imageUrl}
                               alt="Avatar Tailwind CSS Component"
                             />
                           </div>
                         </div>
                         <div>
-                          <div className="font-bold">{post.name}</div>
+                          <div className="font-bold">{eventPost.name}</div>
                           <div className="text-sm opacity-50">
-                            {post.userEmail}
+                            {eventPost.userEmail}
                           </div>
                         </div>
                       </div>
                     </td>
 
-                    <td>{post.type}</td>
+                    <td>{eventPost.type}</td>
                     <th className="space-x-1.5 space-y-1.5">
                       <button
-                        onClick={() => handleDeleteUser(post._id)}
+                        onClick={() => handleDeleteEvent(eventPost._id)}
                         className="btn btn-accent  text-white text-[15px]"
                       >
                         <MdDeleteOutline />
@@ -137,4 +135,4 @@ const MyBooking = () => {
   );
 };
 
-export default MyBooking;
+export default ManageEvents;
