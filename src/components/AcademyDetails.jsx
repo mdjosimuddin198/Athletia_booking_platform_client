@@ -49,13 +49,13 @@ const AcademyDetails = () => {
               {academy.rating}
             </span>
             <span className="text-gray-600 text-sm">
-              ({academy.reviews} reviews)
+              ({academy?.reviews} reviews)
             </span>
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-gray-700 text-base mb-4">{academy.description}</p>
+        <p className="text-gray-700 text-base mb-4">{academy?.description}</p>
 
         {/* Location and Date */}
         <div className="flex items-center text-sm text-gray-600 space-x-6 mb-4">
@@ -73,7 +73,7 @@ const AcademyDetails = () => {
                 d="M17.657 16.657L13 21.314l-4.657-4.657A8 8 0 1117.657 16.657z"
               />
             </svg>
-            <span>{academy.location}</span>
+            <span>{academy?.location}</span>
           </div>
           <div className="flex items-center">
             <svg
@@ -94,7 +94,7 @@ const AcademyDetails = () => {
               <span className="text-green-600"> {formattedDate} </span>
             </span>
 
-            <span> &nbsp;Type:- {academy.type}</span>
+            <span> &nbsp;Category:- {academy?.type}</span>
           </div>
         </div>
 
@@ -102,24 +102,24 @@ const AcademyDetails = () => {
         <div className="flex items-center justify-between border-t pt-4">
           <div className="flex items-center space-x-3">
             <img
-              src={academy.imageUrl}
+              src={academy?.imageUrl}
               alt="Instructor"
               className="w-10 h-10 rounded-full"
             />
             <span className="font-medium text-gray-800 text-sm">
-              Instructor: {academy.instructorName}
+              Instructor: {academy?.instructorName}
             </span>
           </div>
 
           {/* Book Now Button */}
-          {academy.isBookable && (
-            <button
-              onClick={handleBookEvent}
-              className="bg-[#177C82] text-white px-4 py-2 rounded-md cursor-pointer text-sm font-semibold "
-            >
-              Book Now
-            </button>
-          )}
+          {/* {academy.isBookable && ( */}
+          <button
+            onClick={handleBookEvent}
+            className="bg-[#177C82] text-white px-4 py-2 rounded-md cursor-pointer text-sm font-semibold "
+          >
+            Book Now
+          </button>
+          {/* )} */}
         </div>
       </div>
     </div>

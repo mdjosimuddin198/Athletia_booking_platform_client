@@ -8,7 +8,8 @@ const AllEvent = () => {
   return (
     <div>
       <h3 className="text-center text-3xl ">
-        Total Events Available Now {allEvent.length}
+        Total Events Available Now{" "}
+        <span className="text-[#177C82] font-bold">{allEvent.length}</span>
       </h3>
       <div className="grid grid-cols-1  my-8 mx-4 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {allEvent.map((academy) => (

@@ -10,6 +10,7 @@ import Loading from "../components/Loading";
 import ErrorPage from "../pages/ErrorPage";
 import MyBooking from "../pages/MyBooking";
 import AllEvent from "../pages/AllEvent";
+import CreaatEvent from "../pages/CreaatEvent";
 
 const Routes = createBrowserRouter([
   {
@@ -67,6 +68,15 @@ const Routes = createBrowserRouter([
         },
         Component: AllEvent,
       },
+      {
+        path: "/create_event",
+        element: (
+          <PrivetRoute>
+            <CreaatEvent></CreaatEvent>
+          </PrivetRoute>
+        ),
+      },
+
       {
         path: "/auth/login",
         Component: LogIn,

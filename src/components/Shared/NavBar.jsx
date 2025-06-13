@@ -91,8 +91,8 @@ const NavBar = () => {
               </h2>
               <ul className="space-y-1 ">
                 <li>
-                  <NavLink to="/book_event" className="hover:underline block">
-                    Book Event
+                  <NavLink to="/create_event" className="hover:underline block">
+                    Create Event
                   </NavLink>
                 </li>
                 <li>
