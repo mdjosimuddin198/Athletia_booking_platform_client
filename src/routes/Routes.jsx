@@ -9,6 +9,7 @@ import PrivetRoute from "./PrivetRoute";
 import Loading from "../components/Loading";
 import ErrorPage from "../pages/ErrorPage";
 import MyBooking from "../pages/MyBooking";
+import AllEvent from "../pages/AllEvent";
 
 const Routes = createBrowserRouter([
   {
@@ -56,6 +57,15 @@ const Routes = createBrowserRouter([
           </PrivetRoute>
         ),
         hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/all_event",
+        loader: async () => {
+          const res = await fetch("http://localhost:5000/all_events");
+          const data = await res.json();
+          return data;
+        },
+        Component: AllEvent,
       },
       {
         path: "/auth/login",

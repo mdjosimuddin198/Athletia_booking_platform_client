@@ -26,7 +26,7 @@ const NavBar = () => {
       <NavLink className="ml-5 p-2 rounded-xl  text-xl" to="/">
         Home
       </NavLink>
-      <NavLink className="ml-5 p-2 rounded-xl  text-xl" to="/events">
+      <NavLink className="ml-5 p-2 rounded-xl  text-xl" to="/all_event">
         Events
       </NavLink>
 

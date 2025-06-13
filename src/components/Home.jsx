@@ -4,9 +4,11 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import Slider_home from "./Slider_home";
 import AcademyCard from "./AcademyCard ";
+import Testimonials from "./Testimonials";
+import WhyAthletia from "./WhyAthletia";
 
 const Home = () => {
   const allEvents = useLoaderData();
@@ -90,10 +92,15 @@ const Home = () => {
         ))}
       </div>
       <div className="flex items-center justify-center">
-        <button className="text-2xl mx-auto my-4 btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#177C82] text-white font-semibold ">
+        <Link
+          to="/all_event"
+          className="text-2xl mx-auto my-4 btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#177C82] text-white font-semibold "
+        >
           See All
-        </button>
+        </Link>
       </div>
+      <Testimonials></Testimonials>
+      <WhyAthletia></WhyAthletia>
     </div>
   );
 };

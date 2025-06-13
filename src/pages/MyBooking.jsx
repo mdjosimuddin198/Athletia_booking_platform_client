@@ -75,7 +75,11 @@ const MyBooking = () => {
       ) : (
         <div>
           <h3 className="text-3xl text-center ">
-            My Total Post : {taskDel.length}{" "}
+            You have{" "}
+            <span className="text-[#aaf40c] font-semibold">
+              {taskDel.length}
+            </span>{" "}
+            booked events
           </h3>
           <div className="overflow-x-auto ">
             <table className="table min-w-full ">
