@@ -14,7 +14,7 @@ const ManageEvents = () => {
     (event) => event.hr_email === logedInuser.email
   );
   const [manageEvents, setManageEvents] = useState(manageEventData);
-  console.log(manageEvents);
+  // console.log(manageEvents);
 
   const handleDeleteEvent = (id) => {
     // console.log(id);
@@ -29,7 +29,7 @@ const ManageEvents = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/all_events/${id}`, {
+        fetch(`https://athletia-server.vercel.app/all_events/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

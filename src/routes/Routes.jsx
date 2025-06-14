@@ -23,7 +23,9 @@ const Routes = createBrowserRouter([
       {
         index: true,
         loader: async () => {
-          const res = await fetch("http://localhost:5000/all_events?limit=6");
+          const res = await fetch(
+            "https://athletia-server.vercel.app/all_events?limit=6"
+          );
           const data = await res.json();
           return data;
         },
@@ -34,7 +36,7 @@ const Routes = createBrowserRouter([
         path: "/event/details/:id",
         loader: async ({ params }) => {
           const res = await fetch(
-            `http://localhost:5000/all_events/${params.id}`
+            `https://athletia-server.vercel.app/all_events/${params.id}`
           );
           const data = await res.json();
           return data;
@@ -49,7 +51,9 @@ const Routes = createBrowserRouter([
       {
         path: "/my_bookings",
         loader: async () => {
-          const res = await fetch("http://localhost:5000/book_events");
+          const res = await fetch(
+            "https://athletia-server.vercel.app/book_events"
+          );
           const data = await res.json();
           return data;
         },
@@ -64,7 +68,9 @@ const Routes = createBrowserRouter([
       {
         path: "/all_event",
         loader: async () => {
-          const res = await fetch("http://localhost:5000/all_events");
+          const res = await fetch(
+            "https://athletia-server.vercel.app/all_events"
+          );
           const data = await res.json();
           return data;
         },
@@ -82,7 +88,7 @@ const Routes = createBrowserRouter([
         path: "/updateEvent/:id",
         loader: async ({ params }) => {
           const res = await fetch(
-            `http://localhost:5000/all_events/${params.id}`
+            `https://athletia-server.vercel.app/all_events/${params.id}`
           );
           const data = await res.json();
           return data;
@@ -97,7 +103,9 @@ const Routes = createBrowserRouter([
       {
         path: "/manage_events",
         loader: async () => {
-          const res = await fetch("http://localhost:5000/all_events");
+          const res = await fetch(
+            "https://athletia-server.vercel.app/all_events"
+          );
           const data = await res.json();
           return data;
         },

@@ -16,7 +16,7 @@ const AcademyDetails = () => {
     };
 
     axios
-      .post("http://localhost:5000/book_events", bookEvent)
+      .post("https://athletia-server.vercel.app/book_events", bookEvent)
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("EventBook Success");

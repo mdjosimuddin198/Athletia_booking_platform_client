@@ -20,11 +20,11 @@ const CreaatEvent = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newEvent = Object.fromEntries(formData.entries());
-    console.log(newEvent);
+    // console.log(newEvent);
     newEvent.rating = generateRandomRating();
     newEvent.reviews = generateRandomReviews();
     axios
-      .post("http://localhost:5000/all_events", newEvent)
+      .post("https://athletia-server.vercel.app/all_events", newEvent)
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {

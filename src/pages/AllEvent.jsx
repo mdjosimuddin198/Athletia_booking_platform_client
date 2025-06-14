@@ -6,7 +6,7 @@ import { CiSearch } from "react-icons/ci";
 
 const AllEvent = () => {
   const allEvent = useLoaderData();
-  console.log(allEvent);
+  // console.log(allEvent);
   const [searchTerm, setSearchTerm] = useState("");
   const SearchEventByName = allEvent.filter((event) =>
     event.name.toLowerCase().includes(searchTerm.toLowerCase())

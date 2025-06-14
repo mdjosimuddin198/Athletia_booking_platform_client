@@ -17,7 +17,7 @@ const MyBooking = () => {
   );
 
   const [taskDel, setTaskDel] = useState(myPost);
-  console.log(taskDel);
+  // console.log(taskDel);
 
   const handleDeleteUser = (id) => {
     // console.log(id);
@@ -32,7 +32,7 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/book_events/${id}`, {
+        fetch(`https://athletia-server.vercel.app/book_events/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

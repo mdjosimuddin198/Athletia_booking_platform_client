@@ -17,7 +17,7 @@ const UpdateEvent = () => {
     nextAvailability,
     description,
   } = useLoaderData();
-  console.log(_id);
+  // console.log(_id);
   const { logedInuser } = useContext(AuthContext);
 
   const handleUpdateEvent = (e) => {
@@ -27,9 +27,9 @@ const UpdateEvent = () => {
     const updateEvent = Object.fromEntries(formData.entries());
     // console.log(updateEvent);
     axios
-      .put(`http://localhost:5000/all_events/${_id}`, updateEvent)
+      .put(`https://athletia-server.vercel.app/all_events/${_id}`, updateEvent)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.modifiedCount) {
           toast.success("Your Event Updated Succefully");
         }
