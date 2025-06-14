@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import { MdDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
+import { CiEdit } from "react-icons/ci";
 
 const ManageEvents = () => {
   const { logedInuser } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const ManageEvents = () => {
     (event) => event.hr_email === logedInuser.email
   );
   const [manageEvents, setManageEvents] = useState(manageEventData);
-  console.log(manageEventData);
+  console.log(manageEvents);
 
   const handleDeleteEvent = (id) => {
     // console.log(id);
@@ -116,7 +117,15 @@ const ManageEvents = () => {
                     </td>
 
                     <td>{eventPost.type}</td>
-                    <th className="space-x-1.5 space-y-1.5">
+                    <th className="space-x-1.5 flex items-center  ">
+                      <Link
+                        to={`/updateEvent/${eventPost._id}`}
+                        // onClick={() => handleDeleteEvent(eventPost._id)}
+
+                        className="btn btn-accent  text-white text-[15px]"
+                      >
+                        <CiEdit />
+                      </Link>
                       <button
                         onClick={() => handleDeleteEvent(eventPost._id)}
                         className="btn btn-accent  text-white text-[15px]"
