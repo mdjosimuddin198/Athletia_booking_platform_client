@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { useLoaderData } from "react-router";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const UpdateEvent = () => {
   const {
@@ -40,6 +41,9 @@ const UpdateEvent = () => {
   };
   return (
     <div className="w-11/12 mx-auto">
+      <Helmet>
+        <title>Update Your Event | Athletia </title>
+      </Helmet>
       <h3 className="text-4xl text-center py-4">Update Your Event </h3>
       <form
         onSubmit={handleUpdateEvent}

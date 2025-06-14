@@ -9,6 +9,7 @@ import Slider_home from "./Slider_home";
 import AcademyCard from "./AcademyCard ";
 import Testimonials from "./Testimonials";
 import WhyAthletia from "./WhyAthletia";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const allEvents = useLoaderData();
@@ -22,6 +23,9 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Home | Athletia </title>
+      </Helmet>
       <div className="relative w-full ">
         <Swiper
           spaceBetween={30}

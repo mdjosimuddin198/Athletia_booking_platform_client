@@ -1,12 +1,16 @@
 import React from "react";
 import { useLoaderData } from "react-router";
 import AcademyCard from "../components/AcademyCard ";
+import { Helmet } from "react-helmet";
 
 const AllEvent = () => {
   const allEvent = useLoaderData();
   console.log(allEvent);
   return (
     <div>
+      <Helmet>
+        <title>All Event | Athletia </title>
+      </Helmet>
       <h3 className="text-center text-3xl ">
         Total Events Available Now{" "}
         <span className="text-[#177C82] font-bold">{allEvent.length}</span>

@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { MdDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
 import { CiEdit } from "react-icons/ci";
+import { Helmet } from "react-helmet";
 
 const ManageEvents = () => {
   const { logedInuser } = useContext(AuthContext);
@@ -51,6 +52,9 @@ const ManageEvents = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Manage Your Events | Athletia </title>
+      </Helmet>
       {manageEvents.length === 0 ? (
         <div className="flex flex-col items-center justify-center min-h-[300px] bg-gray-50 rounded-xl shadow-inner text-center p-6 animate-fade-in">
           <img

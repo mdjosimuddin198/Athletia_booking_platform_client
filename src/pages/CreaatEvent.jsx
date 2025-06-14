@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { Helmet } from "react-helmet";
 
 const CreaatEvent = () => {
   const { logedInuser } = useContext(AuthContext);
@@ -37,6 +38,9 @@ const CreaatEvent = () => {
   };
   return (
     <div className="w-11/12 mx-auto">
+      <Helmet>
+        <title>Create Event | Athletia </title>
+      </Helmet>
       <h3 className="text-4xl text-center py-4">Add A Hot Job </h3>
       <form
         onSubmit={handleAddEvent}

@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../context/AuthProvider";
 import Lottie from "lottie-react";
 import signUPLottie from "../assets/LottieFiles/RegisterLottie.json";
+import { Helmet } from "react-helmet";
 
 // import { Helmet } from "react-helmet";
 
@@ -87,9 +88,9 @@ const SignUp = () => {
   };
   return (
     <div className="flex items-center justify-center mx-4 flex-col md:flex-row ">
-      {/* <Helmet>
-        <title>Resister now|GreenBox BD</title>
-      </Helmet> */}
+      <Helmet>
+        <title>Resister now | Athletia</title>
+      </Helmet>
 
       <div className="card bg-base-100 mx-auto my-5 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">

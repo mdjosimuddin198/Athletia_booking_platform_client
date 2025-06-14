@@ -6,6 +6,7 @@ import { CiEdit } from "react-icons/ci";
 import { FaRegHeart } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const MyBooking = () => {
   const { logedInuser } = useContext(AuthContext);
@@ -52,6 +53,9 @@ const MyBooking = () => {
   // console.log(myPost);
   return (
     <>
+      <Helmet>
+        <title>MyBooking Event| Athletia </title>
+      </Helmet>
       {taskDel.length === 0 ? (
         <div className="flex flex-col items-center justify-center min-h-[300px] bg-gray-50 rounded-xl shadow-inner text-center p-6 animate-fade-in">
           <img

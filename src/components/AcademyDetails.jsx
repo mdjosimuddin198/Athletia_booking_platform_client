@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate, useParams } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const AcademyDetails = () => {
   const academy = useLoaderData();
@@ -35,6 +36,9 @@ const AcademyDetails = () => {
 
   return (
     <div className="max-w-4xl  mx-auto my-6 bg-white rounded-xl shadow-lg overflow-hidden border">
+      <Helmet>
+        <title>Event Details| Athletia </title>
+      </Helmet>
       {/* Banner */}
       <div className="h-64 w-full">
         <img src={academy.imageUrl} alt="Banner" className="w-full h-full " />
