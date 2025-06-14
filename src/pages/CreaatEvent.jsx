@@ -41,7 +41,9 @@ const CreaatEvent = () => {
       <Helmet>
         <title>Create Event | Athletia </title>
       </Helmet>
-      <h3 className="text-4xl text-center py-4">Add A Hot Job </h3>
+      <h3 className="text-4xl text-center py-4">
+        Create & Publish Your Event{" "}
+      </h3>
       <form
         onSubmit={handleAddEvent}
         className="bg-base-300 py-6 px-4 rounded-2xl"
