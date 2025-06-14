@@ -85,7 +85,14 @@ const Home = () => {
           </div>
         </Swiper>
       </div>
-      <h3 className="my-8">Accademy Section</h3>
+      <h3 className="mt-8 text-4xl text-center  font-bold">
+        Featured <span className="text-[#aaf40c]">Events</span>
+      </h3>
+      <p className="text-gray-400 text-center">
+        Advanced sports venues offer the latest facilities, dynamic and unique
+        <br />
+        environments for enhanced badminton performance.
+      </p>
       <div className="grid grid-cols-1 my-8 mx-4 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {allEvents.map((academy) => (
           <AcademyCard key={academy._id} academy={academy}></AcademyCard>

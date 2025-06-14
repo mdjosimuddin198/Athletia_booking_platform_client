@@ -32,7 +32,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-base-100 py-16 px-4">
+    <section className="bg-base-100 py-16 px-4 ">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold">
           Our <span className="text-[#aaf40c]">Testimonials</span>
@@ -46,7 +46,10 @@ const Testimonials = () => {
 
       <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {testimonials.map((t, idx) => (
-          <div key={idx} className="card bg-base-200 shadow-md p-6">
+          <div
+            key={idx}
+            className="card bg-base-200 hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out shadow-md p-6"
+          >
             <div className="flex items-center mb-3">
               {[...Array(t.rating)].map((_, i) => (
                 <FaStar key={i} className="text-yellow-400 mr-1" />

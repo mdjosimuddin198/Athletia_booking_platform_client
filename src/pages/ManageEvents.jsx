@@ -82,7 +82,7 @@ const ManageEvents = () => {
           <div className="overflow-x-auto ">
             <table className="table min-w-full ">
               {/* head */}
-              <thead>
+              <thead className="hover:bg-gray-100 transition-colors duration-300">
                 <tr>
                   <th>Num</th>
                   <th>Name</th>
@@ -91,7 +91,7 @@ const ManageEvents = () => {
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="hover:bg-gray-100 transition-colors duration-300">
                 {/* row 1 */}
                 {manageEvents.map((eventPost, index) => (
                   <tr key={eventPost._id}>

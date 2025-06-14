@@ -9,7 +9,7 @@ const AcademyCard = ({ academy }) => {
   );
 
   return (
-    <div className="max-w-sm rounded-2xl shadow-lg overflow-hidden border">
+    <div className="max-w-sm hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out rounded-2xl shadow-lg overflow-hidden border">
       {/* Banner Image */}
       <div className="h-40 w-full">
         <img
