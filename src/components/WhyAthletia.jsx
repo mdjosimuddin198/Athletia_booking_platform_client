@@ -60,7 +60,10 @@ export default function WhyAthletia() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {features.map((feature, idx) => (
-          <div key={idx} className="card bg-base-200 p-6 shadow-md text-center">
+          <div
+            key={idx}
+            className="card bg-base-200 hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out p-6 shadow-md text-center"
+          >
             <div className="text-4xl mb-4 flex items-center justify-center">
               {feature.icon}
             </div>

@@ -17,7 +17,11 @@ const MyBooking = () => {
   );
 
   const [taskDel, setTaskDel] = useState(myPost);
+  const [view, setView] = useState("table");
   // console.log(taskDel);
+  const viewStyle = () => {
+    setView(view === "card" ? "table" : "card");
+  };
 
   const handleDeleteUser = (id) => {
     // console.log(id);
@@ -50,13 +54,10 @@ const MyBooking = () => {
       }
     });
   };
-  // console.log(myPost);
-  return (
-    <>
-      <Helmet>
-        <title>MyBooking Event| Athletia </title>
-      </Helmet>
-      {taskDel.length === 0 ? (
+
+  if (taskDel.length === 0) {
+    return (
+      <>
         <div className="flex flex-col items-center justify-center min-h-[300px] bg-gray-50 rounded-xl shadow-inner text-center p-6 animate-fade-in">
           <img
             src="https://cdn-icons-png.flaticon.com/512/4076/4076549.png"
@@ -75,6 +76,44 @@ const MyBooking = () => {
           >
             Book Event
           </Link>
+        </div>
+      </>
+    );
+  }
+  // console.log(myPost);
+  return (
+    <>
+      <Helmet>
+        <title>MyBooking Event| Athletia </title>
+      </Helmet>
+      {view === "card" ? (
+        <div className="py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {taskDel.map((taskPost) => (
+            <div
+              key={taskPost._id}
+              className="card hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out w-96 bg-base-100 shadow-sm"
+            >
+              <figure>
+                <img src={taskPost.imageUrl} alt={taskPost.name} />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">
+                  {taskPost.name}
+                  <div className="badge badge-secondary">{taskPost.type}</div>
+                </h2>
+                <p>{taskPost.description}</p>
+                <p>{logedInuser.email}</p>
+                <div className="card-actions ">
+                  <button
+                    onClick={() => handleDeleteUser(taskPost._id)}
+                    className="btn btn-accent  text-white text-[15px]"
+                  >
+                    <MdDeleteOutline />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       ) : (
         <div>
@@ -137,6 +176,11 @@ const MyBooking = () => {
           </div>
         </div>
       )}
+      <div className="flex items-center justify-center mb-4">
+        <button className="btn  bg-[#177C82] text-white" onClick={viewStyle}>
+          {view === "card" ? "TableView" : "CardView"}
+        </button>
+      </div>
     </>
   );
 };

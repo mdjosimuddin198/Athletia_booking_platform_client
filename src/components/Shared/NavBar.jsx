@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const NavBar = () => {
   const { logedInuser, setLogedInUser, logOutUser } = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleLogOutUser = () => {
     logOutUser()
@@ -73,35 +73,48 @@ const NavBar = () => {
       </div>
       <div className="navbar-end gap-4 relative z-50">
         {logedInuser ? (
-          <div className="navbar-end gap-4 relative group">
+          <div className="navbar-end gap-4 relative">
+            {/* Profile Picture */}
             <img
               src={logedInuser?.photoURL}
               alt="User"
               className="w-10 h-10 rounded-full border cursor-pointer"
+              onClick={() => setOpen((prev) => !prev)} // টগল
             />
 
-            {/* Dropdown on Hover */}
+            {/* Dropdown Menu */}
             <div
-              className="absolute  right-0 top-12 bg-white text-black text-sm px-6 py-3 rounded-xl 
-    shadow-xl space-y-2 w-48 opacity-0 group-hover:opacity-100 invisible group-hover:visible 
-    transition-all duration-300 pointer-events-auto z-50"
+              className={`absolute right-0 top-12 bg-white text-black text-sm px-6 py-3 rounded-xl shadow-xl space-y-2 w-48 transition-all  duration-300 z-50 ${
+                open
+                  ? "opacity-100 visible pointer-events-auto"
+                  : "opacity-0 invisible pointer-events-none"
+              }`}
             >
               <h2 className="text-lg font-semibold">
                 {logedInuser?.displayName}
               </h2>
-              <ul className="space-y-1 ">
+              <ul className="space-y-1">
                 <li>
-                  <NavLink to="/create_event" className="hover:underline block">
+                  <NavLink
+                    onClick={() => setOpen(false)}
+                    to="/create_event"
+                    className="hover:underline block"
+                  >
                     Create Event
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/my_bookings" className="hover:underline block">
+                  <NavLink
+                    onClick={() => setOpen(false)}
+                    to="/my_bookings"
+                    className="hover:underline block"
+                  >
                     My Bookings
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
+                    onClick={() => setOpen(false)}
                     to="/manage_events"
                     className="hover:underline block"
                   >
@@ -111,7 +124,7 @@ const NavBar = () => {
               </ul>
               <button
                 onClick={handleLogOutUser}
-                className="text-red-600 font-medium hover:underline"
+                className="text-red-600 font-semibold hover:underline"
               >
                 Log Out
               </button>
@@ -127,6 +140,8 @@ const NavBar = () => {
             </NavLink>
           </>
         )}
+
+        {/* বাইরে ক্লিক করলে বন্ধ করার লজিক চাইলে যুক্ত করো */}
       </div>
     </div>
   );
