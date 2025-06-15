@@ -28,7 +28,7 @@ const CreaatEvent = () => {
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {
-          toast.success("job Added Successfully");
+          toast.success("Event Added Successfully");
           navigate("/manage_events");
         }
       })
@@ -150,7 +150,7 @@ const CreaatEvent = () => {
           ></textarea>
         </fieldset>
 
-        <input type="submit" className="btn w-full mt-4" value="Add Job" />
+        <input type="submit" className="btn w-full mt-4" value="Add Event" />
       </form>
     </div>
   );

@@ -69,7 +69,7 @@ const ManageEvents = () => {
             Start by sharing your first eventPost with the community.
           </p>
           <Link
-            to={"/"}
+            to={"/create_event"}
             className="px-4 py-2 bg-accent text-white rounded-lg transition"
           >
             Create A eventPost

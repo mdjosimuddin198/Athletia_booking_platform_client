@@ -87,34 +87,43 @@ const MyBooking = () => {
         <title>MyBooking Event| Athletia </title>
       </Helmet>
       {view === "card" ? (
-        <div className="py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {taskDel.map((taskPost) => (
-            <div
-              key={taskPost._id}
-              className="card hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out w-96 bg-base-100 shadow-sm"
-            >
-              <figure>
-                <img src={taskPost.imageUrl} alt={taskPost.name} />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">
-                  {taskPost.name}
-                  <div className="badge badge-secondary">{taskPost.type}</div>
-                </h2>
-                <p>{taskPost.description}</p>
-                <p>{logedInuser.email}</p>
-                <div className="card-actions ">
-                  <button
-                    onClick={() => handleDeleteUser(taskPost._id)}
-                    className="btn btn-accent  text-white text-[15px]"
-                  >
-                    <MdDeleteOutline />
-                  </button>
+        <>
+          <h3 className="text-3xl text-center ">
+            You have{" "}
+            <span className="text-[#aaf40c] font-semibold">
+              {taskDel.length}
+            </span>{" "}
+            booked events
+          </h3>
+          <div className="py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {taskDel.map((taskPost) => (
+              <div
+                key={taskPost._id}
+                className="card hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out  bg-base-100 shadow-sm"
+              >
+                <figure>
+                  <img src={taskPost.imageUrl} alt={taskPost.name} />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">
+                    {taskPost.name}
+                    <div className="badge badge-secondary">{taskPost.type}</div>
+                  </h2>
+                  <p>{taskPost.description}</p>
+                  <p>{logedInuser.email}</p>
+                  <div className="card-actions ">
+                    <button
+                      onClick={() => handleDeleteUser(taskPost._id)}
+                      className="btn btn-accent  text-white text-[15px]"
+                    >
+                      <MdDeleteOutline />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       ) : (
         <div>
           <h3 className="text-3xl text-center ">
