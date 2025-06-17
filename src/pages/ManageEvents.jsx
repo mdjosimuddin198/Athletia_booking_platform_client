@@ -31,6 +31,7 @@ const ManageEvents = () => {
       if (result.isConfirmed) {
         fetch(`https://athletia-server.vercel.app/all_events/${id}`, {
           method: "DELETE",
+          credentials: "include",
         })
           .then((res) => res.json())
           .then((data) => {

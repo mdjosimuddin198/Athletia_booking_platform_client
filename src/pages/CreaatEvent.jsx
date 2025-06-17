@@ -24,7 +24,9 @@ const CreaatEvent = () => {
     newEvent.rating = generateRandomRating();
     newEvent.reviews = generateRandomReviews();
     axios
-      .post("https://athletia-server.vercel.app/all_events", newEvent)
+      .post("https://athletia-server.vercel.app/all_events", newEvent, {
+        withCredentials: true,
+      })
       .then((res) => {
         // console.log(res.data);
         if (res.data.insertedId) {

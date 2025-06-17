@@ -9,17 +9,36 @@ const NavBar = () => {
   const { logedInuser, setLogedInUser, logOutUser } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
 
-  const handleLogOutUser = () => {
-    logOutUser()
-      .then(() => {
-        // console.log("user log out successfully");
-        setLogedInUser(null);
-        toast.success("Log Out Successfully");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("error found");
+  // const handleLogOutUser = () => {
+  //   logOutUser()
+  //     .then(() => {
+  //       // console.log("user log out successfully");
+  //       setLogedInUser(null);
+  //       toast.success("Log Out Successfully");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       toast.error("error found");
+  //     });
+  // };
+
+  const handleLogOutUser = async () => {
+    try {
+      // 1️⃣ Firebase থেকে লগআউট
+      await logOutUser();
+
+      // 2️⃣ Express এ কল দিয়ে কুকিতে থাকা টোকেনও clear করো
+      await fetch("https://athletia-server.vercel.app/api/logout", {
+        method: "POST",
+        credentials: "include",
       });
+
+      setLogedInUser(null);
+      toast.success("Log Out Successfully");
+    } catch (error) {
+      console.error(error);
+      toast.error("error found.");
+    }
   };
   const links = (
     <>

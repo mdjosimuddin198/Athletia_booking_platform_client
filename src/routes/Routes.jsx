@@ -36,7 +36,10 @@ const Routes = createBrowserRouter([
         path: "/event/details/:id",
         loader: async ({ params }) => {
           const res = await fetch(
-            `https://athletia-server.vercel.app/all_events/${params.id}`
+            `https://athletia-server.vercel.app/all_events/${params.id}`,
+            {
+              credentials: "include",
+            }
           );
           const data = await res.json();
           return data;
@@ -52,7 +55,10 @@ const Routes = createBrowserRouter([
         path: "/my_bookings",
         loader: async () => {
           const res = await fetch(
-            "https://athletia-server.vercel.app/book_events"
+            "https://athletia-server.vercel.app/book_events",
+            {
+              credentials: "include",
+            }
           );
           const data = await res.json();
           return data;
@@ -75,6 +81,7 @@ const Routes = createBrowserRouter([
           return data;
         },
         Component: AllEvent,
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/create_event",
@@ -88,7 +95,8 @@ const Routes = createBrowserRouter([
         path: "/updateEvent/:id",
         loader: async ({ params }) => {
           const res = await fetch(
-            `https://athletia-server.vercel.app/all_events/${params.id}`
+            `https://athletia-server.vercel.app/all_events/${params.id}`,
+            { credentials: "include" }
           );
           const data = await res.json();
           return data;
@@ -104,7 +112,10 @@ const Routes = createBrowserRouter([
         path: "/manage_events",
         loader: async () => {
           const res = await fetch(
-            "https://athletia-server.vercel.app/all_events"
+            "https://athletia-server.vercel.app/all_events",
+            {
+              credentials: "include",
+            }
           );
           const data = await res.json();
           return data;

@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -32,6 +33,17 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setLoading(false);
       setLogedInUser(user);
+      if (user?.email) {
+        const info = { userEmail: user.email };
+        axios
+          .post("https://athletia-server.vercel.app/jwt_token", info, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("after jwt token ", res.data);
+          })
+          .catch((err) => console.log(err));
+      }
     });
     return () => unsubscribe();
   }, []);
