@@ -11,6 +11,11 @@ This project provides hands-on experience with user authentication, API integrat
 
 ---
 
+## Screenshot
+![Project Screenshot](src/assets/image.png)
+
+---
+
 ## 🔑 Key Features
 
 - **User Authentication:** Signup, login with JWT-based secure sessions
@@ -41,3 +46,54 @@ This project provides hands-on experience with user authentication, API integrat
 - dotenv
 
 ---
+
+## 🛠️ Local Setup Instructions
+
+Follow these steps to run the project locally on your machine:
+
+### Prerequisites
+- [Node.js](https://nodejs.org/en/download/) installed (v14 or above recommended)
+- Git installed (optional but recommended)
+
+### Steps
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/mdjosimuddin198/Athletia_booking_platform_client.git
+# 2️⃣ Navigate into the project directory
+cd Athletia_booking_platform_client
+
+# 3️⃣ Install dependencies
+npm install
+
+# 4️⃣ Run the development server
+npm start
+
+```
+---
+## 🤝 Contributing
+
+Feel free to fork, contribute, or give feedback!
+
+If you'd like to contribute, please follow these steps:
+
+1. Fork the repository
+
+2. Create your feature branch:
+```bash
+git checkout -b feature/YourFeature
+
+```
+3. Commit your changes:
+```bash
+git commit -m 'Add some feature'
+```
+4.Push to the branch:
+```bash
+git push origin feature/YourFeature
+```
+5. Open a Pull Request
+   
+Thanks for helping improve the project! 🙌
+
+
