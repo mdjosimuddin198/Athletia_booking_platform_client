@@ -10,6 +10,8 @@ import AcademyCard from "./AcademyCard ";
 import Testimonials from "./Testimonials";
 import WhyAthletia from "./WhyAthletia";
 import { Helmet } from "react-helmet";
+import BlogSection from "../pages/BlogSection";
+import Newsletter from "../pages/Newsletter";
 
 const Home = () => {
   const allEvents = useLoaderData();
@@ -97,7 +99,7 @@ const Home = () => {
         <br />
         environments for enhanced badminton performance.
       </p>
-      <div className="grid grid-cols-1 my-8 mx-4 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1  my-8 mx-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {allEvents.map((academy) => (
           <AcademyCard key={academy._id} academy={academy}></AcademyCard>
         ))}
@@ -112,6 +114,8 @@ const Home = () => {
       </div>
       <Testimonials></Testimonials>
       <WhyAthletia></WhyAthletia>
+      <BlogSection></BlogSection>
+      <Newsletter></Newsletter>
     </div>
   );
 };

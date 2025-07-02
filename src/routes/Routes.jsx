@@ -13,6 +13,8 @@ import AllEvent from "../pages/AllEvent";
 import CreaatEvent from "../pages/CreaatEvent";
 import ManageEvents from "../pages/ManageEvents";
 import UpdateEvent from "../pages/UpdateEvent";
+import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
 
 const Routes = createBrowserRouter([
   {
@@ -126,6 +128,14 @@ const Routes = createBrowserRouter([
           </PrivetRoute>
         ),
         hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "about_us",
+        Component: AboutUs,
+      },
+      {
+        path: "contact_us",
+        Component: ContactUs,
       },
 
       {

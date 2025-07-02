@@ -54,7 +54,7 @@ const AllEvent = () => {
       </div>
       {SearchEventByName.length > 0 ? (
         <>
-          <div className="grid grid-cols-1  my-8 mx-4 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1  my-8 mx-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {SearchEventByName.map((academy) => (
               <AcademyCard key={academy._id} academy={academy}></AcademyCard>
             ))}

@@ -55,6 +55,9 @@ const NavBar = () => {
       <NavLink className="ml-5 p-2 rounded-xl  text-xl" to="/about_us">
         About Us
       </NavLink>
+      <NavLink className="ml-5 p-2 rounded-xl  text-xl" to="/contact_us">
+        Contact Us
+      </NavLink>
     </>
   );
   return (

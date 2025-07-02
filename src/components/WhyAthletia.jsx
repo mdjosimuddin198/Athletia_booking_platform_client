@@ -47,7 +47,7 @@ export default function WhyAthletia() {
   ];
 
   return (
-    <section className="bg-base-100 py-16 px-4">
+    <section className="bg-base-100 py-16 ">
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold">
           Why Athletes <span className="text-[#aaf40c]">Love Athletia</span>
@@ -58,7 +58,7 @@ export default function WhyAthletia() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mx-6">
         {features.map((feature, idx) => (
           <div
             key={idx}
